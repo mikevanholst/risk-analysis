@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+    <div class="well">
+        <p id="notice"><%= notice %></p>
+        <h1>Risks</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name <small>(click to edit)</small></th>
+              <th>Label</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Controls</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @risks.each do |risk| %>
+              <tr>
+                <td class= "justify_left"><%= link_to "#{risk.name}", edit_risk_path(risk) %> </td>
+                <td><%= risk.label %></td>
+                <td><%= risk.probability %></td>
+                <td><%= risk.impact %></td>
+                <td><%= risk.controls %></td>
+                <td><%= link_to 'X', @risk, method: :delete, data: { confirm: 'Delete this Risk? Are you sure?' }, class: "deletion" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+        <%= link_to 'Add New Risk', new_risk_path %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="well">
+        <%= image_tag("heat_map.jpg", :alt => "Image missing", class: "img-responsive") %>
+      </div>
+    </div>
+  <div>
+<div>

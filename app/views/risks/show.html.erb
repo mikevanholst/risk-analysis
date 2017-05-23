@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @risk.name %>
+</p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @risk.label %>
+</p>
+
+<p>
+  <strong>Probability:</strong>
+  <%= @risk.probability %>
+</p>
+
+<p>
+  <strong>Impact:</strong>
+  <%= @risk.impact %>
+</p>
+
+<p>
+  <strong>Controls:</strong>
+  <%= @risk.controls %>
+</p>
+
+<%= link_to 'Edit', edit_risk_path(@risk) %> |
+<%= link_to 'Back', risks_path %>  |   
+<%= link_to 'Edit', edit_risk_path(@risk) %> |
+<%= link_to 'Destroy', @risk, method: :delete, data: { confirm: 'Are you sure?' } %>
