@@ -33,9 +33,87 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="well">
-        <%= image_tag("heat_map.jpg", :alt => "Image missing", class: "img-responsive") %>
-      </div>
+    <div class="well" style="margin:0">
+    <h3 align="center" style="margin: 0 0 4px 0">Heat Map - Normalized Scores</h3>
+    <canvas id="myChart">
+    </canvas>
+    <h4 class="prob">Probability</h4>
+    <h4 class="Impa">Impact</h4>
+    </div>
+    <ul class ="col-md-12" style="margin: 10px 0 0 0;">
+      <li class="label label-success lb"> 
+        Low Risk
+      </li>
+      <li class="label label-warning lb col-xs-offset-3"> 
+        Medium Risk
+      </li>
+      <li class="label label-danger lb col-xs-offset-3"> 
+        High Risk
+      </li>
+    </ul>
     </div>
   <div>
 <div>
+
+<script>
+var ctx = document.getElementById("myChart");
+var data = {
+    datasets: [
+      <% @risks.each do |r| %>
+        {
+            label: '<%= r.label %>',
+            data: [
+            
+                {
+                    x: <%= r.probability %>,
+                    y: <%= r.impact %>,
+                    r: 10+<%= r.controls %>
+                }
+               
+            ],
+            backgroundColor: getRandomColor(),
+            hoverBackgroundColor: getRandomColor(),
+        },
+        <% end %> 
+        ]
+};
+var myChart = new Chart(ctx, {
+    type: 'bubble',
+    title:"Heat Map",
+    data: data,
+    options:{ 
+       legend: {
+            display: false,
+        },
+      scales: {
+                    xAxes: [{
+                            display:false,
+                            position: 'bottom',
+                            scaleLabel: {
+                                display: true,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                min:1,
+                                max:10, 
+                            }
+                        }],
+                    yAxes: [{ 
+                              display:false,
+                              type: "linear",
+                              position: "left",
+                              scaleLabel: {
+                                display: true,
+                            },
+                            ticks: {
+                                beginAtZero: true,
+                                min:1,
+                                max: 10
+                            }
+                        },
+                        ]
+                },
+                 
+              },
+});
+</script>

@@ -1,20 +1,40 @@
 // Place all the styles related to the risks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 th {
-	padding: 5px;
+    padding: 5px;
 }
+
 table {
-	text-align: center;
+    text-align: center;
 }
 
 .justify_left {
-	text-align: left;
+    text-align: left;
 }
 
 .deletion {
-	color: red;
-	font-weight: bold;
+    color: red;
+    font-weight: bold;
+}
+
+#myChart {
+    background: linear-gradient(45deg, #0DFF00 0%, #e1e200 50%, #FF3F0A 87%, #FF3F0A 100%)
+}
+
+.Impa {
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 160px;
+    left: -2px
+}
+
+.prob {
+    margin: 2px 0 0 0;
+    text-align: center;
+}
+
+.lb{
+	/*margin-left: 50px;*/
+	font-size: 13px;
 }
