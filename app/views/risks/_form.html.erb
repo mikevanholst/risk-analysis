@@ -45,7 +45,7 @@
       ["3 - low:likely in 10 yrs, 10-20\% chance in 1 yr", 3],
       ["2 - immaterial: likely in 15 yrs, less than a 10\% chance in 1 yr", 2],
       ["1 - immaterial: likely in 20 yrs, less than a 5\% chance in 1 yr", 1]
-      ])
+      ], selected: risk.probability    )
       %>
   </div>
 
@@ -62,13 +62,18 @@
       ["3 - low:  minimal impact", 3],
       ["2 - immaterial:  negligible impacts", 2],
       ["1 - immaterial: negilgible impact", 1]
-      ])
+      ], selected: risk.impact )
       %>
   </div>
 
   <div class="field ">
     <%= f.label :controls, "Exposure" %>
-    <%= f.select :controls, options_for_select(1..5)  %>
+    <%= f.select :controls, options_for_select( [     
+      ["5 - No controls, Risk not Controlable", 5],
+      ["4 - Limited Controls in Place, Risk is not completely controlable ", 4],
+      ["3 - Controls in Place, ", 3],
+      ["2 - Substantial Controls in Place", 2],
+      ["1 - Strong Controls in Place", 1] ], selected: risk.controls )  %>
   </div>
 
   <div class="actions">
