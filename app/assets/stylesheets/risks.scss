@@ -1,6 +1,13 @@
 // Place all the styles related to the risks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.test { border: 2px solid red; }
+
+.long {width: 100%;}
+
 th {
     padding: 5px;
 }
@@ -11,6 +18,14 @@ table {
 
 .justify_left {
     text-align: left;
+}
+
+.justify_right {
+    text-align: right;
+}
+
+.inline {
+    display: inline-block;
 }
 
 .deletion {
@@ -28,12 +43,15 @@ table {
     position: absolute;
     /*top: 160px;*/
     bottom: 50%;
-    left: -2px
+    left: -2px;
+   
 }
 
 .prob {
     margin: 2px 0 0 0;
-    text-align: center;
+    /*text-align: center;*/
+     /*display: inline-block;*/
+     margin-left: 25px;
 }
 
 .lb{
