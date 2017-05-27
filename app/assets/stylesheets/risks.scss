@@ -18,14 +18,16 @@ table {
     font-weight: bold;
 }
 
-#myChart {
-    background: linear-gradient(45deg, #0DFF00 0%, #e1e200 50%, #FF3F0A 87%, #FF3F0A 100%)
+.myChart {
+    background: linear-gradient(45deg, #0DFF00 0%, #e1e200 50%, #FF3F0A 87%, #FF3F0A 100%);
+    /*margin-left: 25px;*/
 }
 
 .Impa {
     transform: rotate(-90deg);
     position: absolute;
-    top: 160px;
+    /*top: 160px;*/
+    bottom: 50%;
     left: -2px
 }
 
@@ -37,4 +39,11 @@ table {
 .lb{
 	/*margin-left: 50px;*/
 	font-size: 13px;
+}
+
+.center {
+    text-align: center;
+}
+.heat-map-panel {
+    padding: 25px;
 }

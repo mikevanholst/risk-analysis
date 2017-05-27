@@ -5,6 +5,7 @@ class RisksController < ApplicationController
   # GET /risks.json
   def index
     @risks = Risk.all
+    @categories = Category.all
 
   end
 
@@ -16,6 +17,8 @@ class RisksController < ApplicationController
   # GET /risks/new
   def new
     @risk = Risk.new
+    @category_id = params[:category_id]
+    @category = Category.find_by_id(@category_id.to_i)
   end
 
   # GET /risks/1/edit
@@ -28,14 +31,23 @@ class RisksController < ApplicationController
   # POST /risks
   # POST /risks.json
   def create
+    @categories = Category.all
     @risk = Risk.new(risk_params)
-
+    # @category_id = params[:category_id]
+    # @category = Category.find_by_id(@category_id.to_i)
+    # @category = Category.find_by_id(params[:category_id])
+    # @risk.category_id = @category_id
+    # @risk.category_id = @category.id
+    # @risk.category = @category
+    
     respond_to do |format|
       if @risk.save
-        format.html { redirect_to @risk, notice: 'Risk was successfully created.' }
+        # format.html { redirect_to @risk, notice: 'Risk was successfully created.' }
+        format.html { redirect_to risks_path, notice: 'Risk was successfully created.' }
         format.json { render :show, status: :created, location: @risk }
       else
-        format.html { render :new }
+        # format.html { render :new }
+        format.html { render :risks }
         format.json { render json: @risk.errors, status: :unprocessable_entity }
       end
     end
@@ -73,6 +85,6 @@ class RisksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def risk_params
-      params.require(:risk).permit(:name, :label, :probability, :impact, :controls)
+      params.require(:risk).permit(:name, :label, :probability, :impact, :controls, :category_id)
     end
 end

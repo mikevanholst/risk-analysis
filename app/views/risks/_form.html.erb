@@ -11,35 +11,67 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+ 
+  <div class="field ">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, size: '50'%>
   </div>
 
-  <div class="field">
-    <%= f.label :label %>
+<div class="field">
+    <%= f.label :label, "Short label for legend." %>
     <%= f.text_field :label %>
   </div>
 
-  <div class="field">
+  <div class="field ">
+    <%= f.label :category_id, "Category" %>
+   <%= f.collection_select :category_id, Category.all, :id, :name, selected: @category_id %>
+  </div>
 
 
-      <br/>
+  <div class="field ">
+
+
+ 
     <%= f.label :probability%>
-    <%= f.select :probability, options_for_select(1..10) %>
+    <%= f.select :probability, options_for_select( [
+      ["10 - very high: 90-100\% chance to occur within 1 year", 10],
+      ["9 -  very high: 80-90\% chance to occur within 1 year", 9],
+      ["8 - high: likely in 2 yrs, 65-80\% chance in 1 yr", 8],
+      ["7 - high: likely in 2 yrs, 50-65\% chance in 1 yr", 7],
+      ["6 - moderate: likely in 3 yrs, 40-50\% chance in 1 yr", 6],
+      ["5 - moderate: likely in 5 yrs, 30-40\% chance in 1 yr", 5],
+      ["4 - low:likely in 8 yrs, 20-30\% chance in 1 yr", 4],
+      ["3 - low:likely in 10 yrs, 10-20\% chance in 1 yr", 3],
+      ["2 - immaterial: likely in 15 yrs, less than a 10\% chance in 1 yr", 2],
+      ["1 - immaterial: likely in 20 yrs, less than a 5\% chance in 1 yr", 1]
+      ])
+      %>
   </div>
 
-  <div class="field">
+  <div class="field ">
     <%= f.label :impact %>
-    <%= f.select :impact, options_for_select(1..10)  %>
+    <%= f.select :impact, options_for_select( [
+      ["10 - extremely high: non-recoverable catastrophic", 10],
+      ["9 - very high: catastrophic", 9],
+      ["8 - high: major impacts", 8],
+      ["7 - high: major impat", 7],
+      ["6 - moderate:  moderate impacts", 6],
+      ["5 - moderate:  moderate impact", 5],
+      ["4 - low:  minimal impacts", 4],
+      ["3 - low:  minimal impact", 3],
+      ["2 - immaterial:  negligible impacts", 2],
+      ["1 - immaterial: negilgible impact", 1]
+      ])
+      %>
   </div>
 
-  <div class="field">
-    <%= f.label :controls %>
+  <div class="field ">
+    <%= f.label :controls, "Exposure" %>
     <%= f.select :controls, options_for_select(1..5)  %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Enter Risk',  class: "btn btn-warning btn-small"%>
   </div>
 <% end %>
