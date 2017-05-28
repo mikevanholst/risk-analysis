@@ -25,7 +25,7 @@
 
   <div class="field ">
     <%= f.label :category_id, "Category" %>
-   <%= f.collection_select :category_id, Category.all, :id, :name, selected: @category_id %>
+   <%= f.collection_select :category_id, Category.all, :id, :name, selected: @category_id || risk.category_id  %>
   </div>
 
 
@@ -67,13 +67,13 @@
   </div>
 
   <div class="field ">
-    <%= f.label :controls, "Exposure" %>
+    <%= f.label :controls, "Controls" %>
     <%= f.select :controls, options_for_select( [     
-      ["5 - No controls, Risk not Controlable", 5],
-      ["4 - Limited Controls in Place, Risk is not completely controlable ", 4],
-      ["3 - Controls in Place, ", 3],
-      ["2 - Substantial Controls in Place", 2],
-      ["1 - Strong Controls in Place", 1] ], selected: risk.controls )  %>
+      ["5 - No controls, Risk not Controlable", 1],
+      ["4 - Limited Controls in Place, Risk is largely uncontrolable ", 2],
+      ["3 - Some Controls in Place, ", 3],
+      ["2 - Substantial Controls in Place", 4],
+      ["1 - Strong Controls in Place", 5] ], selected: risk.controls )  %>
   </div>
 
   <div class="actions">

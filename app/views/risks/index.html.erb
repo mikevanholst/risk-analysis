@@ -19,7 +19,7 @@
               <th>Label</th>
               <th>Probability</th>
               <th>Impact</th>
-              <th>Exposure</th>
+              <th>Controls</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -31,7 +31,7 @@
                 <td><%= risk.probability %></td>
                 <td><%= risk.impact %></td>
                 <td><%= risk.controls %></td>
-                <td><%= link_to 'X', @risk, method: :delete, data: { confirm: 'Delete this Risk? Are you sure?' }, class: "deletion" %></td>
+                <td><%= link_to 'X', risk, method: :delete, data: { confirm: 'Delete this Risk? Are you sure?' }, class: "deletion" %></td>
               </tr>
             <% end %>
           </tbody>
@@ -113,7 +113,7 @@ var data = {
                 {
                     x: <%= r.probability %>,
                     y: <%= r.impact %>,
-                    r: 5+<%= r.controls * 3 %>
+                    r: <%=5*(6-r.controls) %>
                 }
                
             ],
