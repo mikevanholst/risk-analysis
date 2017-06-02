@@ -1,5 +1,5 @@
 <div class="container">
-
+   <p id="notice"><%= notice %></p>
 
 <% @categories.each do |category| %>
 
@@ -9,13 +9,13 @@
 
     <div class="col-md-6">
     <div class="panel">
-        <p id="notice"><%= notice %></p>
-        <h3><%= category.name %> Risk Legend</h3>
+     
+        <h3 class="hidden-sm center hidden-xs"><%= category.name %> Risk Legend</h3>
        
        <table>
           <thead>
             <tr>
-              <th>Name <small>(click to edit)</small></th>
+              <th>Name <small class="hidden-sm  hidden-xs">(click to edit)</small></th>
               <th>Label</th>
               <th>Probability</th>
               <th>Impact</th>
@@ -49,7 +49,7 @@
       <!-- <div class="panel" style="margin:0"> -->
       <div class="panel heat-map-panel" >
 
-        <h3 align="center" style="margin: 0 0 4px 0"><%= category.name %> Risk Map</h3>
+        <h3 class="hidden-sm  hidden-xs" align="center" style="margin: 0 0 4px 0"><%= category.name %> Risk Map</h3>
         <h4>
           <div class="col-xs-6 justify_left " >
                <small >Monitor</small> 
