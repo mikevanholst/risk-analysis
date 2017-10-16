@@ -37,6 +37,18 @@
   </div>
 </nav>
 
+<div> 
+<h3>Audio Streaming Player</h3>
+  <audio id="stream" controls preload="none" autoplay style="width: 400px; border: 1px solid black;">
+<source src="http://149.56.234.136:9970/;" type="audio/mpeg">
+</audio>
+<script>
+var audio = document.getElementById('stream');
+audio.volume = 0.5;
+</script>
+<br>
+<br>
+</div>
 
     <%= yield %>
   </body>
